@@ -1,12 +1,13 @@
 package com.learndsa;
 
-public class Main {
+public class Arrays {
 
     public static void main(String[] args) {
 
-        int[] testArray = new int[]{10,20,30,40,50,60,70,80};
-        // System.out.println(linearSearch(testArray, 40));
-        // System.out.println(binarySearch(testArray, 50));
+        int[] testArrayNotSorted = new int[]{4,3,55,6,77,3,22,90,0,-4,21};
+        int[] testArraySorted = new int[]{10,20,30,40,50,60,70,80};
+        // System.out.println(linearSearch(testArraySorted, 40));
+        // System.out.println(binarySearch(testArraySorted, 50));
 
 
 
@@ -33,6 +34,10 @@ public class Main {
 
         return -1;
     }
+
+    // bubble sort : compare adjacent items
+
+
 
 
 } // end of class
