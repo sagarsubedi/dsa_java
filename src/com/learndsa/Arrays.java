@@ -9,7 +9,8 @@ public class Arrays {
         // System.out.println(linearSearch(testArraySorted, 40));
         // System.out.println(binarySearch(testArraySorted, 50));
         System.out.println("The sorted array is");
-        bubbleSort(testArrayNotSorted);
+        //bubbleSort(testArrayNotSorted);
+//        selectionSort(testArrayNotSorted);
         printArray(testArrayNotSorted);
 
 
@@ -55,6 +56,22 @@ public class Arrays {
                     arr[j+1] = temp;
                 }
             }
+        }
+    }
+
+
+    // selection sort
+    public static void selectionSort(int[] arr){
+        for(int i=0; i<arr.length-1; i++){
+            int min = i;
+            for(int j = i+1; j<arr.length-1; j++){
+                if(arr[j] < arr[min]) min = j;
+            }
+//            after each round we find the minimum in that array range
+//            now swap the two values
+            int temp = arr[min];
+            arr[min] = arr[i];
+            arr[i] =  temp;
         }
     }
 
