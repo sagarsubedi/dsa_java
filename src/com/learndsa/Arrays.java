@@ -8,10 +8,20 @@ public class Arrays {
         int[] testArraySorted = new int[]{10,20,30,40,50,60,70,80};
         // System.out.println(linearSearch(testArraySorted, 40));
         // System.out.println(binarySearch(testArraySorted, 50));
+        System.out.println("The sorted array is");
+        bubbleSort(testArrayNotSorted);
+        printArray(testArrayNotSorted);
 
 
 
     } // end of main
+
+    // print array for testing reasons
+    public static void printArray(int[] arr){
+        for(int x: arr){
+            System.out.print(x + " ");
+        }
+    }
 
     // return index after a linear search
     public static int linearSearch(int[] arr, int item){
@@ -36,7 +46,17 @@ public class Arrays {
     }
 
     // bubble sort : compare adjacent items
-
+    public static void bubbleSort(int[] arr){
+        for(int i=0; i<arr.length-1; i++){
+            for(int j=0; j<arr.length-1-i; j++){
+                if (arr[j] > arr[j+1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
 
 
 
