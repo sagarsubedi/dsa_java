@@ -1,18 +1,21 @@
 package com.learndsa;
 
-public class Arrays {
+public class Arrays_1D {
 
     public static void main(String[] args) {
 
         int[] testArrayNotSorted = new int[]{4,3,55,6,77,3,22,90,0,-4,21};
         int[] testArraySorted = new int[]{10,20,30,40,50,60,70,80};
-        // System.out.println(linearSearch(testArraySorted, 40));
-        // System.out.println(binarySearch(testArraySorted, 50));
-        System.out.println("The sorted array is");
+//        System.out.println(linearSearch(testArraySorted, 40));
+//        System.out.println(binarySearch(testArraySorted, 50));
+//        System.out.println("The sorted array is");
 //        bubbleSort(testArrayNotSorted);
 //        selectionSort(testArrayNotSorted);
 //        insertionSort(testArrayNotSorted);
-        printArray(testArrayNotSorted);
+//        printArray(testArrayNotSorted);
+        int[] testArrayUpLowBound = new int[]{1,1,2,2,2,3,3,3,4,5,6,7};
+        System.out.println(lowerBound(testArrayUpLowBound, 3));
+        System.out.println(upperBound(testArrayUpLowBound,2));
 
 
 
@@ -90,6 +93,52 @@ public class Arrays {
         }
     }
 
+    // find upper bound and lower bound in sorted array
+    // lower bound: the lowest index which contains that item
+    // upper bound: the highest index which contains that item
+    public static int lowerBound(int[] arr, int data){
+        int ans=-1, low=0, high=arr.length-1;
+
+        while(low<=high){
+            int mid = (low+high)/2;
+//            if the mid index points to data look only to the left for lowerBound
+            if(arr[mid] == data) {
+                ans = mid;
+//                being the high to the left half of the array
+                high = mid - 1;
+//               if mid is not the data then check if data < arr[mid] so that we only look
+//                on the left half of array
+            }else if(data < arr[mid]){
+                high = mid - 1;
+//                if none, then bring the low to the other half because the element is is other half
+            }else{
+                low = mid + 1;
+            }
+        }
+
+
+        return ans;
+    }
+
+    public static int upperBound(int[] arr, int data){
+        int ans=-1, low=0, high=arr.length-1;
+
+        while(low <= high){
+            int mid = (high+low) / 2;
+            if(arr[mid] == data){
+                ans = mid;
+//                in this case, look for higher upper bound to the right
+                low = mid + 1;
+//                if data is smaller, then look on the left part of array
+            }else if(data < arr[mid]){
+                high = mid - 1;
+            }else{
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
 
 
 } // end of class
