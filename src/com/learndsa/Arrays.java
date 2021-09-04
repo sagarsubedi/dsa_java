@@ -9,8 +9,9 @@ public class Arrays {
         // System.out.println(linearSearch(testArraySorted, 40));
         // System.out.println(binarySearch(testArraySorted, 50));
         System.out.println("The sorted array is");
-        //bubbleSort(testArrayNotSorted);
+//        bubbleSort(testArrayNotSorted);
 //        selectionSort(testArrayNotSorted);
+//        insertionSort(testArrayNotSorted);
         printArray(testArrayNotSorted);
 
 
@@ -72,6 +73,20 @@ public class Arrays {
             int temp = arr[min];
             arr[min] = arr[i];
             arr[i] =  temp;
+        }
+    }
+
+
+    // insertion sort
+    public static void insertionSort(int[] arr){
+        for(int i=1; i<=arr.length-1; i++){
+            int val = arr[i];
+            int j= i - 1;
+            while (j>=0 && arr[j] > val){
+                arr[j+1] = arr[j];
+                j--;
+            }
+            arr[j+1] = val;
         }
     }
 
