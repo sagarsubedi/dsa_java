@@ -21,7 +21,7 @@ public class Arrays_2D {
 //            }
 //        }
 
-//        Q: print 2d array in spiral form: 11-12-13-14-24-34-44-54,53,52,51,41,31,21,22,23,33,43,42,32
+//        Q: print 2d array in spiral form: 11 12 13 14 15 25 35 45 55 54 53 52 51 41 31 21 22 23 24 34 44 43 42 32 33
 //         we will use 6 pointers. array should be square array (n*n). works with any n*n array
         int top = 0, left = 0, right = arr.length-1, bottom = arr.length-1, dir=1;
         while(left <= right && top <= bottom){
